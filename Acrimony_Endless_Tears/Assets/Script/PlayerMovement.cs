@@ -24,7 +24,7 @@ public class PlayerMovement: MonoBehaviour
 	void Update ()
 	{
 		Move();
-	}
+	}					
 
 
 	public void Move ()
@@ -46,7 +46,7 @@ public class PlayerMovement: MonoBehaviour
 			_animator.SetFloat("Speed", -Speed);
 		}
 
-		else
+        else if (!_leftArrow && !_rightArrow)
 		{
 			_myRigidBody.velocity = Vector2.zero;
 		}
