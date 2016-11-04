@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\FallowCamara.cs" />
+     <Compile Include="Assets\Script\HumanoidSuperClass.cs" />
      <Compile Include="Assets\Script\PlayerMovement.cs" />
      <Compile Include="Assets\Script\TimeControl.cs" />
  <Reference Include="UnityEngine.UI">
