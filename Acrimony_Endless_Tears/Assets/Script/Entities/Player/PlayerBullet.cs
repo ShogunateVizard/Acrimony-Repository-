@@ -1,19 +1,19 @@
+using System.Runtime.Remoting.Channels;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
 public class PlayerBullet : MonoBehaviour
 {
 
-	private Player player;
+	//private Player player;
     private float Speed;
-    private Rigidbody2D _bulletBody;
+    private Rigidbody2D _mybody;
 
     // Run once
     void Start()
     {
-        _bulletBody = GetComponent<Rigidbody2D>();
-        Speed = 5;
-    }
+        _mybody = GetComponent<Rigidbody2D>();
+	}
 
     void Update()
     {
@@ -22,10 +22,15 @@ public class PlayerBullet : MonoBehaviour
 
 
 	//Have the bullet move in space
-    public void MoveBullet()
-    { 
-		var playerPos = player.transform.localScale;
+    private void MoveBullet()
+    {
+		Speed = 5;
+		float dirX = Input.GetAxisRaw("Horizontal");
+		float dirY = Input.GetAxis("Vertical");
 
-		_bulletBody.velocity = new Vector2(Speed, 0);
+		_mybody.velocity = new Vector2(dirX * Speed, dirY);	
+		print("Bullet Appeared");	
     }
+
+	
 }

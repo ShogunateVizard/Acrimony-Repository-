@@ -17,7 +17,8 @@ public class Player: HumanoidSuperClass
 	private void Start ()
 	{
 		//All the necessary information for the player to function properly
-		ComponentLibrary ();
+		_myBody2D = gameObject.GetComponent<Rigidbody2D> ();
+		MyAnimator = gameObject.GetComponent<Animator> ();
 		_mySpeed = 5;
 	}
 
@@ -29,16 +30,8 @@ public class Player: HumanoidSuperClass
 	}
 
 
-	//Components
-	public void ComponentLibrary ()
-	{
-		_myBody2D = gameObject.GetComponent<Rigidbody2D> ();
-		MyAnimator = gameObject.GetComponent<Animator> ();
-	}
-
-
 	//Player controllers
-	public void MaintainController ()
+	private void MaintainController ()
 	{
 		_jumpButton = Input.GetKeyDown (KeyCode.Space);
 		_shootKey = Input.GetKeyDown (KeyCode.Z);
@@ -46,11 +39,9 @@ public class Player: HumanoidSuperClass
 
 
 	//Have the player move.
-	public void Movement ()
+	private void Movement ()
 	{
 		MaintainController ();
-		JumpFunction ();
-		Attack ();
 
 		//Get the coordinates of the player.
 		_myDirection = Input.GetAxisRaw ("Horizontal");
@@ -60,6 +51,7 @@ public class Player: HumanoidSuperClass
 		_myBody2D.velocity = new Vector2 (mySpeed, _myBody2D.velocity.y);
 		MyAnimator.SetFloat ("Speed", Mathf.Abs (mySpeed));
 		Rotate (_myDirection);
+		Attack (_myDirection);
 	}
 
 
@@ -81,35 +73,44 @@ public class Player: HumanoidSuperClass
 
 
 	// Jumping function
-	public void JumpFunction ()
-	{
-		// Jumping
-		bool myJumpDir = Input.GetButtonDown ("Jump");
+	//private void JumpFunction ()
+	//{
+	//	// Jumping
+	//	bool myJumpDir = Input.GetButtonDown ("Jump");
 
-		//Check if button working
-		if (myJumpDir)
-		{
-			print ("Jumping");
-		}
+	//	//Check if button working
+	//	if (myJumpDir)
+	//	{
+	//		print ("Jumping");
+	//	}
 
-		//If working, have the player jump
-		float jump = Input.GetAxisRaw ("Vertical") * Time.deltaTime;
-		float jumpSpeed = jump * _mySpeed;
-		_myBody2D.velocity = new Vector2 (_myBody2D.velocity.x, jumpSpeed);
-	}
+	//	//If working, have the player jump
+	//	float jump = Input.GetAxisRaw ("Vertical") * Time.deltaTime;
+	//	float jumpSpeed = jump * _mySpeed;
+	//	_myBody2D.velocity = new Vector2 (_myBody2D.velocity.x, jumpSpeed);
+	//}
 
 
 	// Player attack function
-	public void Attack ()
+	public void Attack (float playerFacePos)
 	{
-		_shootKey = Input.GetKeyDown(KeyCode.Space);
+		_shootKey = Input.GetKeyDown (KeyCode.Space);
 
 		// Check if the player press the button.
 		if (_shootKey)
 		{
-			GameObject bulletClone = Instantiate(Bullet, transform.position, Quaternion.identity)
-				as GameObject;
-			_destroyerOfBullet.DestroyBullet(bulletClone);
+			IgnoreCollision();
+			GameObject bulletInstance = Instantiate(Bullet, transform.position, Quaternion.identity) as 
+				GameObject;
 		}
-	} 
+	}
+
+
+	//Ignore the collision of the player with the bullet.
+	private void IgnoreCollision ()
+	{
+		var bulletBody = GetComponent<Collider2D> ();
+		var myCollider = GetComponent<Collider2D> ();
+		Physics2D.IgnoreCollision (bulletBody, myCollider);
+	}
 }

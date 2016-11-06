@@ -3,10 +3,11 @@ using System.Collections;
 
 public class BulletDestroyer: MonoBehaviour
 {
-	//Destroy the bullet
-	public void DestroyBullet (GameObject bullet)
+	public void OnCollisionEnter2D (Collision2D collision)
 	{
-		float timeLimit = 3;
-		Destroy (bullet, timeLimit);
+		if (collision.collider.tag == "Bullet")
+		{
+			Destroy(collision.gameObject);
+		}
 	}
 }
