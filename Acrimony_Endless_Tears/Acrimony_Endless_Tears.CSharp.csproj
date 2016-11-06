@@ -74,10 +74,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\FallowCamara.cs" />
+    <Compile Include="Assets\Script\BulletDestroyer.cs" />
+    <Compile Include="Assets\Script\Entities\Player\FallowCamara.cs" />
+    <Compile Include="Assets\Script\Entities\Player\PlayerBullet.cs" />
+    <Compile Include="Assets\Script\Entities\Player\Player.cs" />
+    <Compile Include="Assets\Script\Entities\Player\TimeControl.cs" />
     <Compile Include="Assets\Script\HumanoidSuperClass.cs" />
-    <Compile Include="Assets\Script\PlayerMovement.cs" />
-    <Compile Include="Assets\Script\TimeControl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

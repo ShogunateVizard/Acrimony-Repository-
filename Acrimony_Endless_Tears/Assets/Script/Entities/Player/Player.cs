@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-public class PlayerMovement: HumanoidSuperClass
+public class Player: HumanoidSuperClass
 {
-	private bool _jumpButton;
+	public bool _jumpButton;
+
+	private BulletDestroyer _destroyerOfBullet;
 	private Rigidbody2D _myBody2D;
-	private bool _shootKey;
+	public bool _shootKey;
+
+	// Save the bullet of the player
+	public GameObject Bullet;
 
 
 	// Use this for initialization
@@ -28,7 +33,7 @@ public class PlayerMovement: HumanoidSuperClass
 	public void ComponentLibrary ()
 	{
 		_myBody2D = gameObject.GetComponent<Rigidbody2D> ();
-		MyAnimator = this.gameObject.GetComponent<Animator> ();
+		MyAnimator = gameObject.GetComponent<Animator> ();
 	}
 
 
@@ -97,7 +102,14 @@ public class PlayerMovement: HumanoidSuperClass
 	// Player attack function
 	public void Attack ()
 	{
+		_shootKey = Input.GetKeyDown(KeyCode.Space);
+
+		// Check if the player press the button.
 		if (_shootKey)
-		{ }
-	}
+		{
+			GameObject bulletClone = Instantiate(Bullet, transform.position, Quaternion.identity)
+				as GameObject;
+			_destroyerOfBullet.DestroyBullet(bulletClone);
+		}
+	} 
 }
