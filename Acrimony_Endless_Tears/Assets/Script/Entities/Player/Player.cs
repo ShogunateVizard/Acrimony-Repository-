@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using System.Collections;
 
 public class Player: HumanoidSuperClass
 {
@@ -9,17 +10,32 @@ public class Player: HumanoidSuperClass
 	private Rigidbody2D _myBody2D;
 	public bool _shootKey;
 
-	// Save the bullet of the player
-	public GameObject Bullet;
+	//Jump vars
+	public Transform GroundCheck;
+	private bool _jumping;
+	private bool _grounded;
+	public float _checkGroundRadius;
+	public float JumpHeight;
 
+	//Needed component for the weapon
+	public GameObject Bullet;
+	public Transform WeaponBarrel;
+
+	[Tooltip("Enter the ground layer to check for.")]
+	public 	LayerMask GroundMask;
 
 	// Use this for initialization
 	private void Start ()
 	{
+		_shootKey = Input.GetKeyDown (KeyCode.Z);
+
 		//All the necessary information for the player to function properly
 		_myBody2D = gameObject.GetComponent<Rigidbody2D> ();
 		MyAnimator = gameObject.GetComponent<Animator> ();
+
+		//Player speed and bool check
 		_mySpeed = 5;
+		_grounded = true;
 	}
 
 
@@ -30,19 +46,12 @@ public class Player: HumanoidSuperClass
 	}
 
 
-	//Player controllers
-	private void MaintainController ()
-	{
-		_jumpButton = Input.GetKeyDown (KeyCode.Space);
-		_shootKey = Input.GetKeyDown (KeyCode.Z);
-	}
-
-
 	//Have the player move.
 	private void Movement ()
 	{
-		MaintainController ();
-
+		CheckIfGrounded();
+		Attack();
+		Jump();
 		//Get the coordinates of the player.
 		_myDirection = Input.GetAxisRaw ("Horizontal");
 		var mySpeed = _myDirection * _mySpeed;
@@ -51,7 +60,6 @@ public class Player: HumanoidSuperClass
 		_myBody2D.velocity = new Vector2 (mySpeed, _myBody2D.velocity.y);
 		MyAnimator.SetFloat ("Speed", Mathf.Abs (mySpeed));
 		Rotate (_myDirection);
-		Attack (_myDirection);
 	}
 
 
@@ -72,36 +80,33 @@ public class Player: HumanoidSuperClass
 	}
 
 
-	// Jumping function
-	//private void JumpFunction ()
-	//{
-	//	// Jumping
-	//	bool myJumpDir = Input.GetButtonDown ("Jump");
-
-	//	//Check if button working
-	//	if (myJumpDir)
-	//	{
-	//		print ("Jumping");
-	//	}
-
-	//	//If working, have the player jump
-	//	float jump = Input.GetAxisRaw ("Vertical") * Time.deltaTime;
-	//	float jumpSpeed = jump * _mySpeed;
-	//	_myBody2D.velocity = new Vector2 (_myBody2D.velocity.x, jumpSpeed);
-	//}
+	//Jump function
+	private void Jump()
+	{
+		var jumpButton = Input.GetAxisRaw("Jump");
+		if (_grounded && jumpButton > 0)
+		{
+			_grounded = false;
+			MyAnimator.SetBool("isGrounded", _grounded);	
+			_myBody2D.AddForce(new Vector2(0, JumpHeight));
+		}	
+	}
 
 
 	// Player attack function
-	public void Attack (float playerFacePos)
+	public void Attack ()
 	{
-		_shootKey = Input.GetKeyDown (KeyCode.Space);
+		_shootKey = Input.GetKeyDown (KeyCode.Z);
 
 		// Check if the player press the button.
 		if (_shootKey)
 		{
 			IgnoreCollision();
-			GameObject bulletInstance = Instantiate(Bullet, transform.position, Quaternion.identity) as 
-				GameObject;
+			MyAnimator.SetBool("Attacking", true);
+			Instantiate(Bullet, WeaponBarrel.transform.position, Quaternion.identity);
+		} else
+		{
+			MyAnimator.SetBool("Attacking", false);
 		}
 	}
 
@@ -112,5 +117,16 @@ public class Player: HumanoidSuperClass
 		var bulletBody = GetComponent<Collider2D> ();
 		var myCollider = GetComponent<Collider2D> ();
 		Physics2D.IgnoreCollision (bulletBody, myCollider);
+	}
+
+
+	//Check if the player is grounded
+	private void CheckIfGrounded()
+	{
+		_grounded = Physics2D.OverlapCircle(GroundCheck.position, _checkGroundRadius, GroundMask);
+		MyAnimator.SetBool ("isGrounded", _grounded);
+
+		//Set the animation to fallow the y speed of the character while in the air.
+		MyAnimator.SetFloat("VerticalSpeed", _myBody2D.velocity.y);
 	}
 }

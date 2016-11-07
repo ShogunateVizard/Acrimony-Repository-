@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 4349e972e3d88684babebd56812360e3
+timeCreated: 1478474984
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Expecial_Effects_Sprite_Sheet_0
+    21300002: Expecial_Effects_Sprite_Sheet_1
+    21300004: Expecial_Effects_Sprite_Sheet_2
+    21300006: Expecial_Effects_Sprite_Sheet_3
+    21300008: Expecial_Effects_Sprite_Sheet_4
+    21300010: Expecial_Effects_Sprite_Sheet_5
+    21300012: Expecial_Effects_Sprite_Sheet_6
+    21300014: Expecial_Effects_Sprite_Sheet_7
+    21300016: Expecial_Effects_Sprite_Sheet_8
+    21300018: Expecial_Effects_Sprite_Sheet_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1835
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1828
+        width: 80
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 1825
+        width: 88
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1582
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 1580
+        width: 125
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1578
+        width: 129
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1348
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1344
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1339
+        width: 147
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Expecial_Effects_Sprite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1106
+        width: 159
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

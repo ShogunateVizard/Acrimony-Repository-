@@ -3,11 +3,12 @@ using System.Collections;
 
 public class BulletDestroyer: MonoBehaviour
 {
-	public void OnCollisionEnter2D (Collision2D collision)
+	//Timer for the live of the bullet
+	private float _bulletTimer;
+
+	private void Awake()
 	{
-		if (collision.collider.tag == "Bullet")
-		{
-			Destroy(collision.gameObject);
-		}
+		_bulletTimer = 2;
+		Destroy(gameObject, _bulletTimer);	
 	}
 }
