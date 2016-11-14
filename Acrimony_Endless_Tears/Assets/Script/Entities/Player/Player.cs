@@ -2,19 +2,20 @@
 using UnityEngine.SocialPlatforms;
 using System.Collections;
 
-public class Player: HumanoidSuperClass
+public class Player: Humenoid
 {
 	public bool _jumpButton;
 
 	private BulletDestroyer _destroyerOfBullet;
-	private Rigidbody2D _myBody2D;
-	public bool _shootKey;
+	
+
+	//Weapon vars
+	private PlayerBullet _playerBullet;
+	public bool ShootKey;
 
 	//Jump vars
-	public Transform GroundCheck;
-	private bool _jumping;
-	private bool _grounded;
-	public float _checkGroundRadius;
+	
+	
 	public float JumpHeight;
 
 	//Needed component for the weapon
@@ -27,7 +28,7 @@ public class Player: HumanoidSuperClass
 	// Use this for initialization
 	private void Start ()
 	{
-		_shootKey = Input.GetKeyDown (KeyCode.Z);
+		ShootKey = Input.GetKeyDown (KeyCode.Z);
 
 		//All the necessary information for the player to function properly
 		_myBody2D = gameObject.GetComponent<Rigidbody2D> ();
@@ -35,7 +36,7 @@ public class Player: HumanoidSuperClass
 
 		//Player speed and bool check
 		_mySpeed = 5;
-		_grounded = true;
+		_grounded = false;
 	}
 
 
@@ -50,8 +51,10 @@ public class Player: HumanoidSuperClass
 	private void Movement ()
 	{
 		CheckIfGrounded();
+		IgnoreCollision();
 		Attack();
 		Jump();
+
 		//Get the coordinates of the player.
 		_myDirection = Input.GetAxisRaw ("Horizontal");
 		var mySpeed = _myDirection * _mySpeed;
@@ -89,19 +92,22 @@ public class Player: HumanoidSuperClass
 			_grounded = false;
 			MyAnimator.SetBool("isGrounded", _grounded);	
 			_myBody2D.AddForce(new Vector2(0, JumpHeight));
-		}	
+		}
+		else
+		{
+			_grounded = true;
+		}
 	}
 
 
 	// Player attack function
 	public void Attack ()
 	{
-		_shootKey = Input.GetKeyDown (KeyCode.Z);
+		ShootKey = Input.GetKeyDown (KeyCode.Z);
 
 		// Check if the player press the button.
-		if (_shootKey)
+		if (ShootKey)
 		{
-			IgnoreCollision();
 			MyAnimator.SetBool("Attacking", true);
 			Instantiate(Bullet, WeaponBarrel.transform.position, Quaternion.identity);
 		} else
@@ -114,9 +120,9 @@ public class Player: HumanoidSuperClass
 	//Ignore the collision of the player with the bullet.
 	private void IgnoreCollision ()
 	{
-		var bulletBody = GetComponent<Collider2D> ();
+		var bulletBody = Bullet.GetComponent<Collider2D> ();
 		var myCollider = GetComponent<Collider2D> ();
-		Physics2D.IgnoreCollision (bulletBody, myCollider);
+		Physics2D.IgnoreCollision (myCollider, bulletBody, true);
 	}
 
 

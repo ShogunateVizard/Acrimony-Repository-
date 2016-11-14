@@ -7,7 +7,6 @@ using UnityEngine.SocialPlatforms;
 public class PlayerBullet: MonoBehaviour
 {
 
-	//private Player player;
 	private float Speed;
 	private Rigidbody2D _mybody;
 
@@ -18,20 +17,20 @@ public class PlayerBullet: MonoBehaviour
 
 	private void Awake ()
 	{
-		
+
 	}
 
 	private void Update ()
 	{
 		_mybody = GetComponent<Rigidbody2D> ();
 		Speed = 5f;
-		MoveBullet ();
+		MoveBullet();
 	}
 
 	//Have the bullet move in space
-	private void MoveBullet ()
+	public void MoveBullet ()
 	{
-		_mybody.AddForce (new Vector2 (1, 0) * Speed, ForceMode2D.Impulse);
+		_mybody.AddForce(new Vector2(1, 0) * Speed, ForceMode2D.Impulse);
 	}
 
 
@@ -39,10 +38,10 @@ public class PlayerBullet: MonoBehaviour
 	private void OnTriggerEnter2D (Collider2D other)
 	{
 		//Destroy this game object
-		Destroy(gameObject);
+		Destroy (gameObject);
 
 		//Instantiate the explosion
-		GameObject explosionCopy = Instantiate(Explosion, transform.position, Quaternion.identity) 
+		GameObject explosionCopy = Instantiate (Explosion, transform.position, Quaternion.identity)
 			as GameObject;
 
 		//Destroy the explosion prefab after the animation has ended.
