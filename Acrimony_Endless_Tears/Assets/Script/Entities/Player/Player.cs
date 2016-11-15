@@ -129,10 +129,11 @@ public class Player: Humenoid
 	//Check if the player is grounded
 	private void CheckIfGrounded()
 	{
+		//Check if the ground collider is.... on the ground
 		_grounded = Physics2D.OverlapCircle(GroundCheck.position, _checkGroundRadius, GroundMask);
 		MyAnimator.SetBool ("isGrounded", _grounded);
 
-		//Set the animation to fallow the y speed of the character while in the air.
+		//Set the animation to fallow the y-axis speed of the character while in the air.
 		MyAnimator.SetFloat("VerticalSpeed", _myBody2D.velocity.y);
 	}
 }
