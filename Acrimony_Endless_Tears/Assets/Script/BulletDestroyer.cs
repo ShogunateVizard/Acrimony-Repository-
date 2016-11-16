@@ -3,10 +3,12 @@ using System.Collections;
 
 public class BulletDestroyer: MonoBehaviour
 {
-	//Destroy the bullet
-	public void DestroyBullet (GameObject bullet)
+	//Timer for the live of the bullet
+	private float _bulletTimer;
+
+	private void Awake()
 	{
-		float timeLimit = 3;
-		Destroy (bullet, timeLimit);
+		_bulletTimer = 2;
+		Destroy(gameObject, _bulletTimer);	
 	}
 }
