@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
-    public Animator myAnimator { get; set; }
+    protected Animator myAnimator { get; set; }
     private BulletDestroyer _destroyerOfBullet;
     private Rigidbody2D _myBody2D;
-    public float movementSpeed;
+    protected float movementSpeed;
     protected bool facingRight;
-    
+
     //Needed component for the weapon
     public GameObject Bullet;
     public Transform WeaponBarrel;
@@ -20,12 +20,13 @@ public class Character : MonoBehaviour {
         myAnimator = gameObject.GetComponent<Animator>();
         facingRight = true;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
+    // Change the facing direction of the player.
     public void ChangeDirection()
     {
         facingRight = !facingRight;
@@ -34,8 +35,8 @@ public class Character : MonoBehaviour {
     }
 
     public void Shootbullet(int value)
-    { 
-        
+    {
+
         if (facingRight)
         {
             myAnimator.SetBool("Attacking", true);
@@ -49,5 +50,3 @@ public class Character : MonoBehaviour {
 
 
 }
-
-
