@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
+using System;
+using UnityEngine;
 
 public class FallowCamara : MonoBehaviour
 {
@@ -6,5 +8,8 @@ public class FallowCamara : MonoBehaviour
 	private void Start() {}
 
 	// Update is called once per frame
-	private void Update() {}
+	private void Update() 
+	{
+		System.Console.WriteLine("Hello World");
+	}
 }

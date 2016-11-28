@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: aa6dc4238d8a02e43a13c1be0d0cffe8
 folderAsset: yes
 timeCreated: 1479367909
+=======
+guid: dfa3e7913a84ac34f971e2d54a6a01e4
+folderAsset: yes
+timeCreated: 1479506626
+>>>>>>> ShogunateVizard/master
 licenseType: Free
 DefaultImporter:
   userData: 

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 *.meta
 *.userprefs
 *.index
+=======
+.meta
+.userprefs
+.index
+>>>>>>> ShogunateVizard/master

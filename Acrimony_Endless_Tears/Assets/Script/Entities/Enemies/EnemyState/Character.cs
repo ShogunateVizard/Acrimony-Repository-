@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-
-    protected Animator myAnimator { get; set; }
+    public Animator myAnimator { get; set; }
     private BulletDestroyer _destroyerOfBullet;
     private Rigidbody2D _myBody2D;
     protected float movementSpeed;

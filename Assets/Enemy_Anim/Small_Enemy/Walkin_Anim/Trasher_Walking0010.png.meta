@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 92dbd0b0dc30856479aa088bde92fb26
 timeCreated: 1479367940
+=======
+guid: 6b8c2be1c0d5fa3428573d0a0559bc5c
+timeCreated: 1479506642
+>>>>>>> ShogunateVizard/master
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

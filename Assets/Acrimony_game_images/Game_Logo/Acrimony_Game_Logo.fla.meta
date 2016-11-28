@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 65e948103695aff47bd98aaf93ad47ab
 timeCreated: 1479367909
+=======
+guid: 2206629deb26ed849a3cb4094b58e117
+timeCreated: 1479506626
+>>>>>>> ShogunateVizard/master
 licenseType: Free
 DefaultImporter:
   userData: 

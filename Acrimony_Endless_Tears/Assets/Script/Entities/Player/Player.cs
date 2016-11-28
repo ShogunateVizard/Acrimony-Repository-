@@ -87,6 +87,7 @@ public class Player: Humenoid
 	private void Jump()
 	{
 		var jumpButton = Input.GetAxisRaw("Jump");
+		// Check if I am grounded and if the player have pressed the jump button
 		if (_grounded && jumpButton > 0)
 		{
 			_grounded = false;

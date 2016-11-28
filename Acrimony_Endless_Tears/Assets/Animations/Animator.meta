@@ -1,9 +1,21 @@
+<<<<<<< HEAD:Acrimony_Endless_Tears/Assets/Animations/Trasher/Animator.meta
 fileFormatVersion: 2
-guid: ae22470675df27744a8bc0f3fef30569
+guid: 0fa6dedd9768d9c4ba6b4e4346d54105
 folderAsset: yes
-timeCreated: 1480365580
+timeCreated: 1478380217
 licenseType: Free
 DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 3e826f41b1a736846b0c507b7107afad
+folderAsset: yes
+timeCreated: 1480184736
+licenseType: Free
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> ShogunateVizard/master:Acrimony_Endless_Tears/Assets/Animations/Animator.meta
