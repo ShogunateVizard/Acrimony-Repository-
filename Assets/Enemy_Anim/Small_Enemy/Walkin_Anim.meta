@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fileFormatVersion: 2
 <<<<<<< HEAD
 guid: eec643b8111623b4d9c411a9e612a87c
@@ -13,3 +14,14 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: cb9255e113286a843a3d97b7be8b9763
+folderAsset: yes
+timeCreated: 1479506626
+licenseType: Free
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> refs/remotes/ShogunateVizard/master

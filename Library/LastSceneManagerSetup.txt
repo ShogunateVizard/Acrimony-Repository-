@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 sceneSetups: []
+=======
+sceneSetups: []
+>>>>>>> refs/remotes/ShogunateVizard/master
