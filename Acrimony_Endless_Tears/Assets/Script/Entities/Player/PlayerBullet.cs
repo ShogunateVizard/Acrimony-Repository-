@@ -1,15 +1,9 @@
-
-using System;
-using System.Runtime.Remoting.Channels;
-using System.Threading;
-using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using UnityEngine;
 
 public class PlayerBullet: MonoBehaviour
 {
 
-	private float Speed;
+	private float _speed;
 	private Rigidbody2D _mybody;
 
 	//Explosion prefab
@@ -25,14 +19,14 @@ public class PlayerBullet: MonoBehaviour
 	private void Update ()
 	{
 		_mybody = GetComponent<Rigidbody2D> ();
-		Speed = 5f;
+		_speed = 5f;
 		MoveBullet();
 	}
 
 	//Have the bullet move in space
 	public void MoveBullet ()
 	{
-		_mybody.AddForce(new Vector2(1, 0) * Speed, ForceMode2D.Impulse);
+		_mybody.AddForce(new Vector2(1, 0) * _speed, ForceMode2D.Impulse);
 	}
 
 

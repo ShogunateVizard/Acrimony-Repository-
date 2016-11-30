@@ -4,15 +4,15 @@ using System;
 
 public class IdleState : IEnemyState {
 
-    private Enemy enemy;
+    private Enemy _enemy;
 
-    private float idelTimer;
+    private float _idelTimer;
 
-    private float idleDuration = 5f;
+    private float _idleDuration = 5f;
 
     public void Enter(Enemy enemy)
     {
-        this.enemy = enemy;
+        this._enemy = enemy;
     }
 
     public void Execute()
@@ -34,13 +34,13 @@ public class IdleState : IEnemyState {
 
     private void Idle()
     {
-        enemy.myAnimator.SetFloat("speed", 0);
+        _enemy.MyAnimator.SetFloat("Speed", 0);
 
-        idelTimer += Time.deltaTime;
+        _idelTimer += Time.deltaTime;
 
-        if (idelTimer >= idleDuration)
+        if (_idelTimer >= _idleDuration)
         {
-            enemy.ChangeState(new PatrolState());
+            _enemy.ChangeState(new PatrolState());
 
         }
     }

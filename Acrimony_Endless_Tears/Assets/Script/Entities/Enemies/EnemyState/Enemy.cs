@@ -4,10 +4,10 @@ using System.Collections;
 public class Enemy : Character 
 { 
 
-    private IEnemyState currentState;
+    private IEnemyState _currentState;
 	
     // Use this for initialization
-	void Start ()
+	public override void Start ()
     {
         base.Start();
         ChangeState(new IdleState());
@@ -16,30 +16,30 @@ public class Enemy : Character
 	// Update is called once per frame
 	void Update ()
     {
-        currentState.Execute();
+        _currentState.Execute();
 	}
 
     public void ChangeState(IEnemyState newState)
     {
-        if (currentState != null)
+        if (_currentState != null)
         {
-            currentState.Exit();
+            _currentState.Exit();
 
         }
-        currentState = newState;
+        _currentState = newState;
 
-        currentState.Enter(this);
+        _currentState.Enter(this);
     }
 
     public void Move()
     {
-        myAnimator.SetFloat("speed", 1);
-        transform.Translate(GetDiretion() * (movementSpeed * Time.deltaTime));
+        MyAnimator.SetFloat("Speed", 1);
+        transform.Translate(GetDiretion() * (MovementSpeed * Time.deltaTime));
     }
 
     public Vector2 GetDiretion()
     {
-        return facingRight ? Vector2.right : Vector2.left;
+        return FacingRight ? Vector2.right : Vector2.left;
     }
 
 }

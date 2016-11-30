@@ -3,54 +3,54 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyTerritory : MonoBehaviour
 {
-    public BoxCollider territory;
-    GameObject player;
-    bool playerInTerritory;
+    public BoxCollider Territory;
+    GameObject _player;
+    bool _playerInTerritory;
 
-    public GameObject enemy;
-    BasicEnemy basicenemy;
+    public GameObject Enemy;
+    BasicEnemy _basicenemy;
 
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        basicenemy = enemy.GetComponent<BasicEnemy>();
-        playerInTerritory = false;
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _basicenemy = Enemy.GetComponent<BasicEnemy>();
+        _playerInTerritory = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerInTerritory == true)
+        if (_playerInTerritory == true)
         {
-            basicenemy.MoveToPlayer();
+            _basicenemy.MoveToPlayer();
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == _player)
         {
-            playerInTerritory = true;
+            _playerInTerritory = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == _player)
         {
-            playerInTerritory = false;
+            _playerInTerritory = false;
         }
     }
 }
 
 public class BasicEnemy : MonoBehaviour
 {
-    public Transform target;
-    public float speed = 3f;
-    public float attack1Range = 1f;
-    public int attack1Damage = 1;
-    public float timeBetweenAttacks;
+    public Transform Target;
+    public float Speed = 3f;
+    public float Attack1Range = 1f;
+    public int Attack1Damage = 1;
+    public float TimeBetweenAttacks;
 
 
     // Use this for initialization
@@ -68,13 +68,13 @@ public class BasicEnemy : MonoBehaviour
     public void MoveToPlayer()
     {
         //rotate to look at player
-        transform.LookAt(target.position);
+        transform.LookAt(Target.position);
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
         //move towards player
-        if (Vector3.Distance(transform.position, target.position) > attack1Range)
+        if (Vector3.Distance(transform.position, Target.position) > Attack1Range)
         {
-            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(Speed * Time.deltaTime, 0, 0));
         }
     }
 

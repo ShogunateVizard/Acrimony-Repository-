@@ -1,16 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using System.Collections;
 
 public class Player: Humenoid
 {
-	public bool _jumpButton;
+	public bool JumpButton;
 
-	private BulletDestroyer _destroyerOfBullet;
-	
-
-	//Weapon vars
-	private PlayerBullet _playerBullet;
 	public bool ShootKey;
 
 	//Jump vars
@@ -31,12 +24,12 @@ public class Player: Humenoid
 		ShootKey = Input.GetKeyDown (KeyCode.Z);
 
 		//All the necessary information for the player to function properly
-		_myBody2D = gameObject.GetComponent<Rigidbody2D> ();
+		MyBody2D = gameObject.GetComponent<Rigidbody2D> ();
 		MyAnimator = gameObject.GetComponent<Animator> ();
 
 		//Player speed and bool check
-		_mySpeed = 5;
-		_grounded = false;
+		MySpeed = 5;
+		Grounded = false;
 	}
 
 
@@ -56,13 +49,13 @@ public class Player: Humenoid
 		Jump();
 
 		//Get the coordinates of the player.
-		_myDirection = Input.GetAxisRaw ("Horizontal");
-		var mySpeed = _myDirection * _mySpeed;
+		MyDirection = Input.GetAxisRaw ("Horizontal");
+		var mySpeed = MyDirection * MySpeed;
 
 		// Movement
-		_myBody2D.velocity = new Vector2 (mySpeed, _myBody2D.velocity.y);
+		MyBody2D.velocity = new Vector2 (mySpeed, MyBody2D.velocity.y);
 		MyAnimator.SetFloat ("Speed", Mathf.Abs (mySpeed));
-		Rotate (_myDirection);
+		Rotate (MyDirection);
 	}
 
 
@@ -88,15 +81,15 @@ public class Player: Humenoid
 	{
 		var jumpButton = Input.GetAxisRaw("Jump");
 		// Check if I am grounded and if the player have pressed the jump button
-		if (_grounded && jumpButton > 0)
+		if (Grounded && jumpButton > 0)
 		{
-			_grounded = false;
-			MyAnimator.SetBool("isGrounded", _grounded);	
-			_myBody2D.AddForce(new Vector2(0, JumpHeight));
+			Grounded = false;
+			MyAnimator.SetBool("isGrounded", Grounded);	
+			MyBody2D.AddForce(new Vector2(0, JumpHeight));
 		}
 		else
 		{
-			_grounded = true;
+			Grounded = true;
 		}
 	}
 
@@ -131,10 +124,10 @@ public class Player: Humenoid
 	private void CheckIfGrounded()
 	{
 		//Check if the ground collider is.... on the ground
-		_grounded = Physics2D.OverlapCircle(GroundCheck.position, _checkGroundRadius, GroundMask);
-		MyAnimator.SetBool ("isGrounded", _grounded);
+		Grounded = Physics2D.OverlapCircle(GroundCheck.position, CheckGroundRadius, GroundMask);
+		MyAnimator.SetBool ("isGrounded", Grounded);
 
 		//Set the animation to fallow the y-axis speed of the character while in the air.
-		MyAnimator.SetFloat("VerticalSpeed", _myBody2D.velocity.y);
+		MyAnimator.SetFloat("VerticalSpeed", MyBody2D.velocity.y);
 	}
 }

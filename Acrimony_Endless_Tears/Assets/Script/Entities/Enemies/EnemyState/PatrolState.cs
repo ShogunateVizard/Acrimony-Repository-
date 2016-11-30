@@ -3,15 +3,15 @@ using System.Collections;
 using System;
 
 public class PatrolState : IEnemyState {
-    private Enemy enemy;
-    private float PatrolTimer;
-    private float PatrolDuration = 2f;
+    private Enemy _enemy;
+    private float _patrolTimer;
+    private float _patrolDuration = 2f;
 
 
 
     public void Enter(Enemy enemy)
     {
-        this.enemy = enemy;
+        this._enemy = enemy;
     }
 
     public void Execute()
@@ -19,7 +19,7 @@ public class PatrolState : IEnemyState {
         Debug.Log("Patrolling");
         Patrol();
 
-        enemy.Move();
+        _enemy.Move();
     }
 
     public void Exit()
@@ -36,11 +36,11 @@ public class PatrolState : IEnemyState {
     {
         
 
-        PatrolTimer += Time.deltaTime;
+        _patrolTimer += Time.deltaTime;
 
-        if (PatrolTimer >= PatrolDuration)
+        if (_patrolTimer >= _patrolDuration)
         {
-            enemy.ChangeState(new IdleState());
+            _enemy.ChangeState(new IdleState());
 
         }
     }

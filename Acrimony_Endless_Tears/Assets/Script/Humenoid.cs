@@ -4,18 +4,18 @@ using System.Collections;
 public class Humenoid: MonoBehaviour
 {
 	//Humanoid characteristics
-	protected float _mySpeed;
+	protected float MySpeed;
 	protected int AttackPower;
 	protected int Health;
-	public float _myDirection;
-	public bool _jumping;
-	public bool _grounded;
-	public float _checkGroundRadius;
+	public float MyDirection;
+	public bool Jumping;
+	public bool Grounded;
+	public float CheckGroundRadius;
 
 	//Needed Components
 	public Transform GroundCheck;
 	public Animator MyAnimator;
-	public Rigidbody2D _myBody2D;
+	public Rigidbody2D MyBody2D;
 
 
 	// Use this for initialization
