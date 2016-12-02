@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acrimony_Endless_Tears", "Acrimony_Endless_Tears.csproj", "{C15F4C0B-4A45-CAEC-E728-4216971E3B73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C15F4C0B-4A45-CAEC-E728-4216971E3B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15F4C0B-4A45-CAEC-E728-4216971E3B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15F4C0B-4A45-CAEC-E728-4216971E3B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15F4C0B-4A45-CAEC-E728-4216971E3B73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
