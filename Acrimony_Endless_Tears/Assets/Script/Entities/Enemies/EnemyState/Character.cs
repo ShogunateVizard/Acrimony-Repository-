@@ -8,6 +8,8 @@ public class Character : MonoBehaviour {
     private Rigidbody2D _myBody2D;
     public float movementSpeed;
     protected bool facingRight;
+    protected bool facingLeft;
+
     
     //Needed component for the weapon
     public GameObject Bullet;
@@ -19,6 +21,7 @@ public class Character : MonoBehaviour {
         Debug.Log("CharStart");
         myAnimator = gameObject.GetComponent<Animator>();
         facingRight = true;
+        facingLeft = true;
     }
 	
 	// Update is called once per frame
@@ -32,6 +35,8 @@ public class Character : MonoBehaviour {
         transform.localScale = new Vector3(transform.localScale.y * -1, 1, 1);
 
     }
+
+
     //SuperClass Attack 
     public void Shootbullet(int value)
     { 

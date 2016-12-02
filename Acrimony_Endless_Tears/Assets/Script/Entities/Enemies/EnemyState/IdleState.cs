@@ -6,11 +6,11 @@ public class IdleState : IEnemyState {
     //classing Enemy as enemy
     private Enemy enemy;
 
-    private float idelTimer = 2f;
+    private float idelTimer;
     
     //Idle set for a amount of time 
 
-    private float idleDuration = 1f;
+    private float idleDuration = 4f;
    
     //Checking for Idle
     public void Enter(Enemy enemy)

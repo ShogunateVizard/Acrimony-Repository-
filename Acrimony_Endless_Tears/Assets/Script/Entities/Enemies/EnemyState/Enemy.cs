@@ -5,6 +5,7 @@ public class Enemy : Character
 { 
 
     private IEnemyState currentState;
+    Character myCharacter;
 	
     // Use this for initialization
 	void Start ()
@@ -40,6 +41,7 @@ public class Enemy : Character
     public Vector2 GetDiretion()
     {
         return facingRight ? Vector2.right : Vector2.left;
+        
     }
     //Calling OnTriggerEnter 
     void OnTriggerEnter2D(Collider2D other)
